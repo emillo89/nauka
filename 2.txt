@@ -1,1 +1,1 @@
-Modyfikacja 2.txt. Z poziomu brancha master
+Jak jest konflikt to ja go rozwiaze.
