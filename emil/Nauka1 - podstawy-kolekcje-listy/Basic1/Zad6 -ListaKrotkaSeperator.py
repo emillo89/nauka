@@ -1,0 +1,7 @@
+print("welcome in my program")
+values = input("Input some comma seprated numbers : ")
+print(values)
+listq = values.split(",")
+print(listq)
+tuple = tuple(listq)
+print(tuple)
