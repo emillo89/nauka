@@ -10,6 +10,7 @@ for question in question_data:
     question_bank.append(Question(text,answer))
 
 
+quiz = QuizBrain(question_bank)
 
-
-print(question_bank[0].text)
+while quiz.still_has_question():
+    quiz.next_question()
