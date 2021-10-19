@@ -17,11 +17,19 @@ class Snake:
     def create_snake(self):
         """Create a object with color, shape and position on the screen"""
         for position in STARTTING_POSITIONS:
-            new_brick = Turtle("square")
-            new_brick.goto(position)
-            new_brick.color("white")
-            new_brick.penup()
-            self.snake_segments.append(new_brick)
+            self.add_segment(position)
+
+    def add_segment(self,position):
+        """Add a new segment to the snake"""
+        new_brick = Turtle("square")
+        new_brick.goto(position)
+        new_brick.color("white")
+        new_brick.penup()
+        self.snake_segments.append(new_brick)
+
+    def extend(self):
+        """Add a new segment to the snake tom the same position as the last segment."""
+        self.add_segment(self.snake_segments[-1].position())
 
     def move(self):
         """How can snake walk."""
