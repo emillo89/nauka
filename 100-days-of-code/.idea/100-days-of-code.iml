@@ -2,6 +2,31 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day4" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day5" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day6" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day7" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day8" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day9" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day10" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day11" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day12" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day13" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1.Beginner/Day14" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day15" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day16" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day17" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day18" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day19" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day20" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day21" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day22" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />

@@ -7,7 +7,7 @@ print(randomInteger)
 print(pi)
 
 
-randomFloat = random.random() * 5
+randomFloat = random.random()
 print(randomFloat)
 
 love_score = random.randint(1, 100)

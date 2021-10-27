@@ -1,7 +1,7 @@
 from turtle import Screen
 from snake import Snake
 import time
-
+from scoreboard import Score
 
 # set width, height, bgcolor
 screen = Screen()
