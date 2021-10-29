@@ -45,7 +45,7 @@ def game():
         '#Derect when the ball goes out l_paddle misses'
         if ball.xcor() < -380:
             ball.reset_position()
-De
+
 
 
 game()
