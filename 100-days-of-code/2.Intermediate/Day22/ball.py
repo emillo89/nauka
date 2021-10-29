@@ -12,6 +12,7 @@ class Ball(Turtle):
         self.goto(x=0, y=0)
         self.x_cor = 10
         self.y_cor = 10
+        self.move_speed = 0.1
 
     def move(self):
         new_x = self.xcor() + self.x_cor
@@ -25,7 +26,12 @@ class Ball(Turtle):
     def bounce_x(self):
         """when the ball detected collision with paddle and bounce in the X direction"""
         self.x_cor *= -1
+        self.move_speed *= 0.9
 
     def reset_position(self):
+        """When you have a point, we restart a ball position."""
         self.goto(0,0)
+        self.move_speed = 0.1
         self.bounce_x()
+
+
