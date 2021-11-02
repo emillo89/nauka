@@ -27,8 +27,16 @@ class Snake:
         new_brick.penup()
         self.snake_segments.append(new_brick)
 
+    def reset(self):
+        """Reseting a snake"""
+        for seg in self.snake_segments:
+            seg.goto(1000, 1000)
+        self.snake_segments.clear()
+        self.create_snake()
+        self.head =self.snake_segments[0]
+
     def extend(self):
-        """Add a new segment to the snake tom the same position as the last segment."""
+        """Add a new segment to the snake to the same position as the last segment."""
         self.add_segment(self.snake_segments[-1].position())
 
     def move(self):
