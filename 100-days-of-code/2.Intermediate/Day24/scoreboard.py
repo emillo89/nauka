@@ -16,6 +16,7 @@ class Score(Turtle):
         self.hideturtle()
 
     def update_scoreboard(self):
+        """Updating score and high score"""
         self.clear()
         self.write(f"Score: {self.score} High score: {self.high_score}", align=ALIGMENT, font=FONT)
 
@@ -27,14 +28,6 @@ class Score(Turtle):
                 file.write(f"{self.high_score}")
         self.score = 0
         self.update_scoreboard()
-
-    def write_data(self):
-        with open("data.txt", "w") as file:
-            file.write(self.high_score)
-
-    # def read_data(self):
-    #     with open("data.txt", "r") as file:
-    #         int(file.read())
 
     def increase_score(self):
         """Information about your score in your game."""
