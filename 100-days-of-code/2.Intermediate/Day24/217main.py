@@ -3,5 +3,6 @@
 #     print(contents)
 
 
-with open("217my_file.txt", mode= "a") as file:
-    file.write("new text")
+with open("C:/Users/emils/Downloads/nowy.txt", mode= "r") as file:
+    read = file.read()
+    print(read)
