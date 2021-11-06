@@ -35,6 +35,7 @@
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day24/Project/Input/Letters" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day24/Project/Input/Names" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day24/Project/Output/ReadyToSend" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day25" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
