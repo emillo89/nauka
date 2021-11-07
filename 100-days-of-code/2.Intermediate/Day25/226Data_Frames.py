@@ -34,12 +34,12 @@ data = pandas.read_csv("weather_data.csv")
 
 # Create a dataframe from scratch
 data_dict = {
-    "students" : ["Amy", "James", "Angela"],
-    "scores" : [76, 56, 65]
+    "students": ["Amy", "James", "Angela"],
+    "scores": [76, 56, 65]
 }
 
 data = pandas.DataFrame(data_dict)
 print(data)
 
-#convert data to csv
+'#convert data to csv'
 data.to_csv("new_data.csv")
