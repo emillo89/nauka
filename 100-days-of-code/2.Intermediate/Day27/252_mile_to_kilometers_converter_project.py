@@ -14,7 +14,7 @@ miles.grid(row=0, column=2)
 km = Label(text="Km", font=("Arial", 14, "bold"))
 km.grid(row=1, column=2)
 
-convert = Label(text="0",font=("Arial", 14, "bold"))
+convert = Label(text="0", font=("Arial", 14, "bold"))
 convert.grid(row=1, column=1)
 
 #Entry
@@ -29,8 +29,7 @@ def calculator():
     convert.config(text=f"{calculate}")
 
 
-
-button = Button(text="Calculate",font=("Arial", 14, "bold"), command=calculator)
+button = Button(text="Calculate", font=("Arial", 14, "bold"), command=calculator)
 button.grid(row=2, column=1)
 
 
