@@ -17,6 +17,7 @@ password.grid(column=0, row=3)
 
 web_entry = Entry()
 web_entry.grid(column=1, row=1, columnspan=2, sticky="WE")
+web_entry.focus()
 email_entry = Entry()
 email_entry.grid(column = 1, row=2, columnspan=2, sticky="WE")
 password_entry = Entry(width=33)
