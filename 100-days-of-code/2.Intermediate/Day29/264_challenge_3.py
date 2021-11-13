@@ -1,16 +1,24 @@
 from tkinter import *
+from tkinter import messagebox
 
 def save():
+
     your_web = web_entry.get()
     your_email = email_entry.get()
     your_password = password_entry.get()
 
-    #save a web, email and password
-    with open("data.txt", mode="a") as file:
-        file.write(f"{your_web} | {your_email} | {your_password}\n")
-        #when you write your web and password, delete your things
-        web_entry.delete(0, END)
-        password_entry.delete(0, END)
+    if len(your_web) == 0 or len(your_password) == 0:
+        info = messagebox.showinfo(title = website, message="Please make sure you haven't left any fields empty. ")
+    else:
+        is_ok = messagebox.askokcancel(title=your_web, message=f"These are the details entered: \nEmail: {your_email}"
+                                                               f"\nPassword: {your_password} \nIs it ok to save?")
+        if is_ok:
+            #save a web, email and password
+            with open("data.txt", mode="a") as file:
+                file.write(f"{your_web} | {your_email} | {your_password}\n")
+                #when you write your web and password, delete your things
+                web_entry.delete(0, END)
+                password_entry.delete(0, END)
 
 
 
