@@ -1,5 +1,19 @@
 from tkinter import *
 
+def save():
+    your_web = web_entry.get()
+    your_email = email_entry.get()
+    your_password = password_entry.get()
+
+    #save a web, email and password
+    with open("data.txt", mode="a") as file:
+        file.write(f"{your_web} | {your_email} | {your_password}\n")
+        #when you write your web and password, delete your things
+        web_entry.delete(0, END)
+        password_entry.delete(0, END)
+
+
+
 window = Tk()
 window.title("Password Manager")
 window.config(padx=50, pady=50, bg="white")
@@ -17,15 +31,22 @@ password.grid(column=0, row=3)
 
 web_entry = Entry()
 web_entry.grid(column=1, row=1, columnspan=2, sticky="WE")
+
+#Cursor place
 web_entry.focus()
 email_entry = Entry()
 email_entry.grid(column=1, row=2, columnspan=2, sticky="WE")
+
+#Default email
+email_entry.insert(0, "emil@gmail.com")
+
 password_entry = Entry(width=33)
 password_entry.grid(column=1, row=3)
 
+
 generate_button = Button(text="Generate Password", bg="white")
 generate_button.grid(column=2, row=3)
-add_button = Button(text="Add", bg="white")
+add_button = Button(text="Add", bg="white", command = save)
 add_button.grid(column=1, row=4, columnspan=2, sticky="WE")
 
 window.mainloop()
