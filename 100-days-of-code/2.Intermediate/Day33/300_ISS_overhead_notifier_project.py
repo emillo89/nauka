@@ -27,7 +27,7 @@ def is_iss_overhead():
 
 def is_night():
     """
-    See ig it's nighttime now
+    See if it's nighttime now
     return:
     boolean: True or False
     """
