@@ -51,6 +51,8 @@
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day33" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day34" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day34/images" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day35" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day35/rain_alert" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
