@@ -1,6 +1,7 @@
 import requests
-from flight_data import FlightData
+from flight_dat import FlightData
 import os
+from pprint import pprint
 
 FLIGHT_ENDPOINT = "https://tequila-api.kiwi.com/locations/query"
 API_KEY_FLIGHT = os.environ["API_KEY_FLIGHT"]
@@ -38,24 +39,38 @@ class FlightSearch:
             "one_for_city": 1,
             "max_stopovers": 0,
             "curr": "GBP"
+
         }
 
         response = requests.get(url="https://tequila-api.kiwi.com/v2/search", headers=headers, params=query)
         try:
             data = response.json()["data"][0]
         except IndexError:
-            print(f"No flights found for {destination_city_code}.")
-            return None
+            query["max_stopovers"] = 1
+            response = requests.get(url="https://tequila-api.kiwi.com/v2/search", headers=headers, params=query)
+            data = response.json()["data"][0]
+            pprint(data)
 
-        flight_data = FlightData(
-            price=data["price"],
-            city_code_from=data["route"][0]["cityCodeFrom"],
-            city_code_to=data["route"][0]["cityCodeTo"],
-            city_from=data["route"][0]["cityFrom"],
-            city_to=data["route"][0]["cityTo"],
-            utc_arrival=data["route"][0]["utc_arrival"].split("T"),
-            utc_departure=data["route"][0]["utc_departure"].split("T")
-        )
+            flight_data = FlightData(
+                price=data["price"],
+                city_code_from=data["route"][0]["cityCodeFrom"],
+                city_code_to=data["route"][0]["cityCodeTo"],
+                city_from=data["route"][0]["cityFrom"],
+                city_to=data["route"][0]["cityTo"],
+                utc_arrival=data["route"][0]["utc_arrival"].split("T"),
+                utc_departure=data["route"][0]["utc_departure"].split("T"),
+                stop_overs=1
+            )
 
-        print(f"{flight_data.city_to} : £{flight_data.price}")
-        return flight_data
+            return flight_data
+        else:
+            flight_data = FlightData(
+                price=data["price"],
+                city_code_from=data["route"][0]["cityCodeFrom"],
+                city_code_to=data["route"][0]["cityCodeTo"],
+                city_from=data["route"][0]["cityFrom"],
+                city_to=data["route"][0]["cityTo"],
+                utc_arrival=data["route"][0]["utc_arrival"].split("T"),
+                utc_departure=data["route"][0]["utc_departure"].split("T"),
+            )
+            return flight_data
