@@ -8,26 +8,22 @@ h1{
 
 .top-container{
   background-color: #B5EAEA;
-  border: solid 10px;
   height: 200px;
-  margin-left: 0px;
-  padding: 20px;
   width: 200px;
 }
 
 .middle-container{
   background-color: red;
-  border:solid 20px;
   height: 200px;
-  margin-left: 260px;
-  padding: 0;
   width:200px;
 }
 
 .bottom-container{
   background-color: green;
-  border:solid 10px;
   height: 200px;
-  margin-left:500px;
   width: 200px;
+}
+
+.pro{
+  text-decoration: underline;
 }
