@@ -51,8 +51,34 @@ h3{
   left:300px;
 }
 
+.skill-row{
+  width:50%;
+  margin: 100px auto 100px auto;
+  text-align: left;
+  line-height: 2;
+}
+
+.img_tools{
+  clear: left;
+  width: 20%;
+  float: left;
+  margin-right: 30px;
+}
+
+
+.img_skill{
+  clear: left;
+  width: 20%;
+  float: right;
+  margin-right: 30px;
+}
+
 .pro{
   text-decoration: underline;
+}
+
+.skill_desc{
+  clear: right;
 }
 
 .footer-link{
