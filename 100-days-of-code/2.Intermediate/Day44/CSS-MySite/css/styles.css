@@ -6,18 +6,22 @@ body{
 }
 
 h1{
+  color: #66BFBF;
   font-size: 5.625rem;
   margin:50px auto 0 auto;
   font-family: 'Sacramento', cursive;
+  line-height: 2;
 }
 
 h2{
+  color: #66BFBF;
   font-family: 'Montserrat', sans-serif;
   font-size: 2.5rem;
-  margin-top:0;
+  font-weight: normal;
 }
 
 h3{
+  color: #11999E;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -49,4 +53,8 @@ h3{
 
 .pro{
   text-decoration: underline;
+}
+
+.footer-link{
+  color: #11999E;
 }
