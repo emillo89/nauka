@@ -54,6 +54,7 @@ auth_sheety = {
     "Authorization": os.environ["Authorization"],
 
 }
+print(os.environ.get("Authorization"))
 
 sheety_edpoints = "https://api.sheety.co/7bffeb9d054d88962d679acc00c1ebe5/emilWorkouts/workouts"
 
