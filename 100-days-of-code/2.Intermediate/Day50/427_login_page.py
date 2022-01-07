@@ -1,5 +1,8 @@
 import time
+
+import selenium
 from selenium import webdriver
+from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 from selenium.webdriver import Keys
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -58,3 +61,19 @@ allow_location.click()
 time.sleep(2)
 disalow_notifications = driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div/div/div[3]/button[2]")
 disalow_notifications.click()
+
+time.sleep(1)
+like = driver.find_element(By.XPATH, "//*[@id='s-138260025']/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[4]/div/div[4]/button")
+for i in range(10):
+    time.sleep(3)
+
+    try:
+        like.click()
+        time.sleep(1)
+    except ElementClickInterceptedException:
+
+        not_agree = driver.find_element(By.XPATH, "//*[@id='s-1866641101']/div/div/div[2]/button[2]")
+        not_agree.click()
+    except NoSuchElementException:
+        time.sleep(2)
+
