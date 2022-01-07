@@ -16,11 +16,13 @@ driver.get("https://tinder.com/")
 
 time.sleep(1)
 
-sign_in = driver.find_element(By.XPATH, "//*[@id='s-138260025']/div/div[1]/div/main/div[1]/div/div/div/div/header/div/div[2]/div[2]/a/span")
+sign_in = driver.find_element(By.XPATH,
+                              "//*[@id='s-138260025']/div/div[1]/div/main/div[1]/div/div/div/div/header/div/div[2]/div[2]/a/span")
 sign_in.click()
 
 time.sleep(2)
-sign_with_fb = driver.find_element(By.XPATH, "//*[@id='s-1866641101']/div/div/div[1]/div/div[3]/span/div[2]/button/span[2]")
+sign_with_fb = driver.find_element(By.XPATH,
+                                   "//*[@id='s-1866641101']/div/div/div[1]/div/div[3]/span/div[2]/button/span[2]")
 sign_with_fb.click()
 
 time.sleep(2)
@@ -28,7 +30,7 @@ time.sleep(2)
 base_window = driver.window_handles[0]
 fb_login_window = driver.window_handles[1]
 driver.switch_to.window(fb_login_window)
-print(driver.title)
+# print(driver.title)
 
 time.sleep(3)
 #full path I use
@@ -43,8 +45,16 @@ fb_password = driver.find_element(By.XPATH, "/html/body/div/div[2]/div[1]/form/d
 fb_password.send_keys(FB_PASSWORD)
 fb_password.send_keys(Keys.ENTER)
 
+time.sleep(1)
 #Switch back to Tinder window
 driver.switch_to.window(base_window)
 print(driver.title)
 
+time.sleep(5)
 
+#allow position -> path for a button
+allow_location = driver.find_element(By.XPATH, "//*[@id='s-1866641101']/div/div/div/div/div[3]/button[1]")
+allow_location.click()
+time.sleep(2)
+disalow_notifications = driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div/div/div[3]/button[2]")
+disalow_notifications.click()
