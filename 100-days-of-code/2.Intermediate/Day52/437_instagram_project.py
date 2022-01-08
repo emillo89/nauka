@@ -9,6 +9,7 @@ CHROME_DRIVER_PATX = "C:/Users/emils/PycharmProjects/Development/chromedriver.ex
 SIMILAR_ACCOUNT = "chefsteps"
 INSTAGRAM_EMAIL = os.environ["MY_EMAIL"]
 INSTAGRAM_PASSWORD = os.environ["MY_PASSWORD"]
+URL = "https://www.instagram.com/"
 
 class InstaFollower:
 
@@ -16,8 +17,10 @@ class InstaFollower:
         self.driver = webdriver.Chrome(executable_path=driver_path)
 
     def login(self):
-        URL = "https://www.instagram.com/"
         self.driver.get(URL)
+        time.sleep(2)
+        cookie = self.driver.find_element(By.XPATH, "/html/body/div[4]/div/div/button[1]")
+        cookie.click()
         time.sleep(2)
         username = self.driver.find_element(By.NAME, "username")
         username.send_keys(INSTAGRAM_EMAIL)
@@ -35,7 +38,16 @@ class InstaFollower:
 
 
     def find_followers(self):
-        pass
+        time.sleep(2)
+        self.driver.get(f"{URL}{SIMILAR_ACCOUNT}/")
+        followers = self.driver.find_element(By.XPATH, "//*[@id='react-root']/section/main/div/header/section/ul/li[2]/a")
+        followers.click()
+        time.sleep(2)
+        scroll_down = self.driver.find_element(By.XPATH, "/html/body/div[6]/div/div/div[2]")
+
+        for i in range(5):
+            self.driver.execute_script('arguments[0].scrollTop = arguments[0].scrollHeight', scroll_down)
+            time.sleep(1)
 
     def follow(self):
         pass
