@@ -106,6 +106,10 @@
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day57/467/templates" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day57/468" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day57/468/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day57/final_project" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day57/final_project/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day57/final_project/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day57/final_project/static/css" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
