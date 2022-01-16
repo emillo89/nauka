@@ -50,3 +50,33 @@ h1 {
   width: 60%;
   transform: rotate(25deg);
 }
+
+/* Features */
+
+#features{
+    padding: 7% 7%;
+}
+
+h3{
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+.icon {
+  color: #ef8172;
+  margin-bottom: 1rem;
+}
+
+.icon:hover{
+    color: #ff4c68;
+}
+
+.features-box{
+  text-align: center;
+  padding: 4.5%;
+
+}
+
+.features-box-text{
+  color: #8f8f8f;
+}
