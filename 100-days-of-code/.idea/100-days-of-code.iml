@@ -89,7 +89,6 @@
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/462/static/assets/js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/462/static/assets/sass" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/462/static/assets/webfonts" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project/static" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project/templates" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project/static/assets" isTestSource="false" />
@@ -115,6 +114,24 @@
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day58/TinDog project" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day58/TinDog project/css" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day58/TinDog project/images" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/synapsi" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project_2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project_2/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project_2/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project_2/static/assets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project_2/static/images" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project_2/static/assets/css" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project_2/static/assets/js" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project_2/static/assets/sass" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project_2/static/assets/webfonts" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day56/project" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day59" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day59/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day59/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day59/static/assets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day59/static/assets/img" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day59/static/css" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day59/static/js" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
