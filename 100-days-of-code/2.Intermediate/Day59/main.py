@@ -19,5 +19,13 @@ def about():
 def contact():
     return render_template("contact.html")
 
+@app.route('/post/<int:index>')
+def show_posts(index):
+    requests_post = None
+    for blog_post in posts:
+        if blog_post['id'] == index:
+            requests_post = blog_post
+    return render_template("posts.html", post=requests_post)
+
 if __name__ == "__main__":
     app.run(debug=True, host="localhost", port="5000")
