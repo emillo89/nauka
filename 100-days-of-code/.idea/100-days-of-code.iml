@@ -136,6 +136,12 @@
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day60/html-forms" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day60/html-forms/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day60/post" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day60/post/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day60/post/static/assets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day60/post/static/css" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day60/post/static/js" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day60/post/templates" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
