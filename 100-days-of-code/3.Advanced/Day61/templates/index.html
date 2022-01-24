@@ -1,9 +1,11 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	<title>Secrets</title>
-</head>
-<body>
+#templating engine(Jinja) to use "base.html" as the template for this page.
+{% extends "bootstrap/base.html" %}
+
+#inserts a custom title into the header of the template
+{% block title %} Secrets {% endblock title %}
+
+#provides the content of the website
+{% block content %}
 <div class="jumbotron">
 	<div class="container">
 		<h1>Welcome</h1>
@@ -11,5 +13,5 @@
 		<button class="btn btn-primary btn-lg" ><a href=" {{ url_for('login') }} ">Login</a></button>
 	</div>
 </div>
-</body>
-</html>
+
+{% endblock %}

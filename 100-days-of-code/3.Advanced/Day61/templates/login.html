@@ -1,29 +1,32 @@
-<!DOCTYPE HTML>
+#templating engine(Jinja) to use "base.html" as the template for this page.
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-<html>
-	<head>
-		<title>Login</title>
-	</head>
-	<body>
-        <div class="container">
-		<h1>Login</h1>
+#inserts a custom title into the header of the template
+{% block title %} Access Denied {% endblock title %}
+
+{% block content %}
+		<div class="container">
+			<h1>Login</h1>
+<!--			Flask-Bootstrap-->
+			{{wtf.quick_form(form, novalidate=True)}}
+		</div>
+
 <!--			Forms with Flask-WTF-->
-        <form method="POST" action="{{url_for('login')}}" novalidate>
-			{{form.csrf_token}}
-			<p>
-				{{form.email.label}} <br> {{form.email(size=30)}}
-				{% for err in form.email.errors%}
-				<span style="color:red"> {{err}} </span>
-				{% endfor %}
-			</p>
-			<p>
-				{{form.password.label}} <br> {{form.password(size=30)}}
-				{% for err in form.password.errors %}
-				<span style="color:red">{{err}}</span>
-				{% endfor%}
-			</p>
-				{{form.submit}}
-		</form>
-        </div>
-	</body>
-</html>
+<!--        <form method="POST" action="{{url_for('login')}}" novalidate>-->
+<!--			{{form.csrf_token}}-->
+<!--			<p>-->
+<!--				{{form.email.label}} <br> {{form.email(size=30)}}-->
+<!--				{% for err in form.email.errors%}-->
+<!--				<span style="color:red"> {{err}} </span>-->
+<!--				{% endfor %}-->
+<!--			</p>-->
+<!--			<p>-->
+<!--				{{form.password.label}} <br> {{form.password(size=30)}}-->
+<!--				{% for err in form.password.errors %}-->
+<!--				<span style="color:red">{{err}}</span>-->
+<!--				{% endfor%}-->
+<!--			</p>-->
+<!--				{{form.submit}}-->
+<!--		</form>-->
+{% endblock %}
