@@ -151,6 +151,7 @@
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day63" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day63/static" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day63/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day63/ProjectSQLite" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
