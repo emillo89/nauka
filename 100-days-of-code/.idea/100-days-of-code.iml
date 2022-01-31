@@ -152,6 +152,31 @@
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day63/static" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day63/templates" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day63/ProjectSQLite" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day64Powtorki" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day64Powtorki/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day64Powtorki/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day64Powtorki/static/assets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day64Powtorki/static/assets/img" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day64Powtorki/static/css" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day64Powtorki/static/js" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/static/assets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/static/css" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/static/js" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/static/assets/img" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/60_html-form" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/60_html-form/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/61-flask-secret" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/61-flask-secret/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/62-coffee" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/62-coffee/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/62-coffee/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/62-coffee/static/css" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/63-bookshelf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/63-bookshelf/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/63-bookshelf/SQLite" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />

@@ -18,13 +18,13 @@ db.create_all()
 
 #New record
 
-# new_book = Book(title="Harry Potter", author="J.K.Rowling", rating=9.3)
-# db.session.add(new_book)
-# db.session.commit()
+new_book = Book(title="Harry Potter", author="J.K.Rowling", rating=9.3)
+db.session.add(new_book)
+db.session.commit()
 
 #Read all books
-# all_books = session.query(Book).all()
-# print(all_books)
+all_books = session.query(Book).all()
+print(all_books)
 
 #Read a particular Record By Query
 # book = Book.query.filter_by(title="Harry Potter").first()
@@ -44,7 +44,7 @@ db.create_all()
 # db.session.commit()
 
 #Delete a particular record by primary key
-book_id = 1
-book_to_delete = Book.query.get(book_id)
-db.session.delete(book_to_delete)
-db.session.commit()
+# book_id = 1
+# book_to_delete = Book.query.get(book_id)
+# db.session.delete(book_to_delete)
+# db.session.commit()
