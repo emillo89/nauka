@@ -182,6 +182,8 @@
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day64/templates" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day64/static/css" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day65" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day66" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day66/templates" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
