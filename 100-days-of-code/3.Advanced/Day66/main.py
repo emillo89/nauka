@@ -56,6 +56,25 @@ def get_random_data():
     # return jsonify(cafe=cafe_random.to_dict())
 
 
+#Take all rows
+@app.route("/all")
+def all():
+    cafes = db.session.query(Cafe).all()
+    return jsonify(all_cafe=[cafe.to_dict() for cafe in cafes])
+    #different metod to show all rows
+    # cafe_list = []
+    # for cafe in cafes:
+    #     cafe_dict = {"id": cafe.id, "name": cafe.name, "map_url": cafe.map_url,
+    #                  "img_url": cafe.img_url,
+    #                  "location": cafe.location, "has_sockets": cafe.has_sockets,
+    #                  "has_toilet": cafe.has_toilet, "has_wifi": cafe.has_wifi,
+    #                  "can_take_calls": cafe.can_take_calls, "seats": cafe.seats,
+    #                  "coffee_price": cafe.coffee_price}
+    #     cafe_list.append(cafe_dict)
+    # all_cafes = {"cafes": cafe_list}
+    # all_cafes_json = jsonify(cafes=all_cafes["cafes"])
+    # return all_cafes_json
+
 
 ## HTTP GET - Read Record
 
