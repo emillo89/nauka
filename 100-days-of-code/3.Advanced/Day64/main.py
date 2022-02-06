@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, Form
 from wtforms.validators import DataRequired
 import requests
 
@@ -14,6 +14,11 @@ Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///movies.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+class MyForm(Form):
+    rating = StringField("Your Rating Our of 10 e.g. 7.5")
+    review = StringField("Your review")
+    submit = SubmitField("Done")
 
 #Create table
 class Movies(db.Model):
@@ -48,6 +53,19 @@ def home():
     all_movies = Movies.query.all()
     print(all_movies)
     return render_template("index.html", movies=all_movies)
+
+
+@app.route("/edit", methods=["GET", "POST"])
+def edit():
+    form = MyForm()
+    # movie_id = request.args.get("id")
+    # movie = Movies.query.get(movie_id)
+    # if form.validate_on_submit():
+    #     movie.rating = float(form.rating.data)
+    #     movie.review = form.review.data
+    #     db.session.commit()
+    #     return redirect(url_for('home'))
+    return render_template("edit.html", form=form)
 
 
 if __name__ == '__main__':
