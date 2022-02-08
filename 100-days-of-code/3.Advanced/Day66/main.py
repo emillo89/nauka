@@ -29,6 +29,7 @@ class Cafe(db.Model):
     def to_dict(self):
         return {column.name : getattr(self, column.name) for column in self.__table__.columns}
 
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -76,16 +77,44 @@ def all():
     # return all_cafes_json
 
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search():
-    query_location = request.args.get("location")
-    cafes = db.session.query(Cafe).filter_by(location=query_location).first()
-    if cafes:
-        return jsonify(cafe=cafes.to_dict())
-    else:
-        return jsonify(error={"Not Found": "Sorry, we don't have a cafe at that location."})
-## HTTP GET - Read Record
+    if request.method == "POST":
+        location = request.form["location"]
+        cafes = db.session.query(Cafe).filter_by(location=location)
+        if cafes:
+            return jsonify(cafes=[cafe.to_dict() for cafe in cafes])
+        else:
+            return jsonify(error={"Not Found" : "Sorry, we don't have cafe at the location"})
+    return render_template("search.html")
 
+#alternative method to add new Cafes and we should to add make bool before boolean atributes
+#e.g has_sockets = make_bool(request.form["has_sockets"])
+# def make_bool(val: int) -> bool:
+#     return bool(int(val))
+
+
+#add new cafe
+@app.route("/add", methods=["GET","POST"])
+def add():
+    if request.method == "POST":
+        new_cafes = Cafe(
+            name = request.form["name"],
+            map_url = request.form["map_url"],
+            img_url = request.form["img_url"],
+            location = request.form["location"],
+            has_sockets = int(request.form["has_sockets"]),
+            has_toilet = int(request.form["has_toilet"]),
+            has_wifi = int(request.form["has_wifi"]),
+            can_take_calls = int(request.form["can_take_calls"]),
+            seats = request.form["seats"],
+            coffee_price = request.form["coffee_price"]
+        )
+
+        db.session.add(new_cafes)
+        db.session.commit()
+        return jsonify({"response":{"success": "Success added the new cafe."}})
+    return render_template("add.html")
 ## HTTP POST - Create Record
 
 ## HTTP PUT/PATCH - Update Record

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form action="{{ url_for('search') }}" method="POST">
+        <label>Location</label>
+        <label>
+            <input name="location" placeholder="Enter location" type="text">
+        </label>
+
+        <button type="submit">Search</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add movie</title>
+</head>
+<body>
+    <form action="{{ url_for('add') }}" method="POST">
+        <label>Name of Cafe</label> <br>
+        <label>
+            <input name="name" placeholder="Enter name" type="text"> <br>
+            <input name="map_url" placeholder="Enter map url" type="text"> <br>
+            <input name="img_url" placeholder="Enter img url" type="text"> <br>
+            <input name="location" placeholder="Enter location" type="text"> <br>
+            <input name="has_sockets" placeholder="Enter has sockets" type="text"> <br>
+            <input name="has_toilet" placeholder="Enter toilet" type="text"> <br>
+            <input name="has_wifi" placeholder="Enter has wifi" type="text"> <br>
+            <input name="can_take_calls" placeholder="Enter can take calls" type="text"> <br>
+            <input name="seats" placeholder="Enter seats" type="text"> <br>
+            <input name="coffee_price" placeholder="Enter coffee price" type="text"> <br>
+        </label>
+
+        <button type="submit">Add Cafe</button>
+    </form>
+</body>
+</html>
