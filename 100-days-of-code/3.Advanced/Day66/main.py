@@ -139,9 +139,22 @@ def new_price():
     else:
         return render_template('edit.html')
 
-@app.route('/')
+@app.route('/cafe-deleted',methods=['GET', 'POST'])
+def delete_cafe():
+    if request.method == 'POST':
+        cafe_id = request.form['id']
+        deleted_cafe = db.session.query(Cafe).get(cafe_id)
+        if deleted_cafe:
+            db.session.delete(deleted_cafe)
+            db.session.commit()
+            return jsonify(response={'Success': 'Successfully deleted the cafe with the detabase '})
+        else:
+            return jsonify(error={'Not Found': 'Sorry a cafe with that id was not found in the database'})
 
+    return render_template('delete.html')
 ## HTTP DELETE - Delete Record
+
+
 
 
 if __name__ == '__main__':
