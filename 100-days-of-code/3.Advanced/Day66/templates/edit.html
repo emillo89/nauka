@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit cafe price</title>
+</head>
+<body>
+    <form action="{{ url_for('new_price') }}" method="POST">
+        <label>Id cafe to change: </label>
+        <label>
+            <input name="id" placeholder="Enter location" type="text">
+        </label>
+        <label> New price cafe: </label>
+        <label>
+            <input name="new_price" placeholder="Enter location" type="text">
+        </label>
+
+        <button type="submit">Subbmit</button>
+    </form>
+</body>
+</html>

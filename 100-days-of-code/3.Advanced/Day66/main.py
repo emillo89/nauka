@@ -1,13 +1,15 @@
 import random
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.secret_key = "hello"
 
 ##Connect to Database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cafes.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(app)
 
 
@@ -115,9 +117,29 @@ def add():
         db.session.commit()
         return jsonify({"response":{"success": "Success added the new cafe."}})
     return render_template("add.html")
-## HTTP POST - Create Record
 
-## HTTP PUT/PATCH - Update Record
+#edit row in database
+@app.route('/update-price', methods=["GET","POST"])
+def new_price():
+    if request.method == "POST":
+        cafe_id = request.form["id"]
+        print(cafe_id)
+        new_price = request.form["new_price"]
+        print(new_price)
+        cafe = db.session.query(Cafe).get(cafe_id)
+        print(cafe)
+        if cafe:
+            print("Ok")
+            cafe.coffee_price = new_price
+            print(cafe.coffee_price)
+            db.session.commit()
+            return redirect(url_for('home'))
+        else:
+            return jsonify(error={"Not found": "Sorry a cafe with that id was not found in the database"})
+    else:
+        return render_template('edit.html')
+
+@app.route('/')
 
 ## HTTP DELETE - Delete Record
 
