@@ -186,6 +186,15 @@
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day66/templates" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/66" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/66/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day67" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/DayPowtorki59-62/Postman" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day67/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day67/static/css" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day67/static/img" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day67/static/js" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day67/static/scss" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day67/static/vendor" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day67/templates" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
