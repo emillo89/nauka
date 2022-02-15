@@ -88,6 +88,7 @@ def new_post():
     return render_template('make-post.html', post=post)
 
 
+#edit post
 @app.route('/edit-post/<int:post_id>', methods=["GET", "POST"])
 def edit_post(post_id):
     post = BlogPost.query.get(post_id)
@@ -108,6 +109,16 @@ def edit_post(post_id):
         db.session.commit()
         return redirect(url_for('show_post', post_id=post.id))
     return render_template('make-post.html', post=edit_form)
+
+
+#delete post
+@app.route('/delete/<int:post_id>')
+def delete(post_id):
+    post_to_delete = BlogPost.query.get(post_id)
+    db.session.delete(post_to_delete)
+    db.session.commit()
+    return redirect(url_for('get_all_posts'))
+
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
