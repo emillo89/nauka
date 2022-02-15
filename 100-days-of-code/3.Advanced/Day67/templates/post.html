@@ -24,7 +24,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <p>
-            {{post.body}}
+<!--NOTE: The data from the CKEditorField is saved as HTML. It contains all the structure and styling of the blog post. In order for this structure to be reflected when you go to the post.html page for the blog post, you need to add a Jinja safe() filter.-->
+            {{post.body|save}}
           </p>
            <hr>
            <div class="clearfix">
