@@ -24,13 +24,14 @@ class User(UserMixin, db.Model):
 def home():
     return render_template("index.html")
 
-
+#Register new users
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
+        hash_password = generate_password_hash(request.form['password'], method='pbkdf2:sha256', salt_length=8 )
         new_user = User(
-            email=request.form["email"],
-            password=request.form["password"],
+            email=generate_password_hash(request.form["email"]),
+            password=hash_password,
             name=request.form["name"]
         )
         db.session.add(new_user)
@@ -39,8 +40,10 @@ def register():
     return render_template("register.html")
 
 
-@app.route('/login')
+@app.route('/login', methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+
     return render_template("login.html")
 
 
@@ -53,9 +56,9 @@ def secrets():
 def logout():
     pass
 
-
-@app.route('/download/<path:filename>')
-def download(filename):
+#download files
+@app.route('/download')
+def download():
     return send_file('static/files/cheat_sheet.pdf')
 
 
