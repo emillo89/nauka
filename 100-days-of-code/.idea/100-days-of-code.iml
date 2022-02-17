@@ -200,6 +200,14 @@
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day68/static/css" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day68/static/files" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day69" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day69/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day69/static/css" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day69/static/img" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day69/static/js" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day69/static/vendor" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day69/static/scss" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day69/templates" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
