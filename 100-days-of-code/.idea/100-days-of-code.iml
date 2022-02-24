@@ -211,6 +211,11 @@
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day69/emilblog" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day71" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day72" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/bonus" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/bonus/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day73" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day73/assets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3.Advanced/Day73/data" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />

@@ -198,6 +198,7 @@ plt.ylim(0, 35000)
 for column in roll_df.columns:
   plt.plot(roll_df.index, roll_df[column], label=roll_df[column].name)
 plt.legend(fontsize=14)
+plt.show()
 
 
 
