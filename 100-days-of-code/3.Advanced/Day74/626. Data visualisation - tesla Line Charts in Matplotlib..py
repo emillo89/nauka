@@ -76,10 +76,16 @@ print(df_btc_price[df_btc_price.CLOSE.isna()])
 df_btc_price.dropna(inplace=True)
 df_btc_price[df_btc_price.CLOSE.isna()]
 
+#Convert any strings in to Datetime objects.
+df_tesla.MONTH = pd.to_datetime(df_tesla.MONTH)
+df_unemployment.MONTH = pd.to_datetime(df_unemployment.MONTH)
+df_btc_search.MONTH = pd.to_datetime(df_btc_search.MONTH)
+df_btc_price.DATE = pd.to_datetime(df_btc_price.DATE)
+
 """Converting from Daily to Monthly Data"""
 #Convert any strings in to Datetime objects.
 print(df_btc_price.DATE)
-# df_btc_monthly = df_btc_price.resample('M', on='DATE').last()
+df_btc_monthly = df_btc_price.resample('M', on='DATE').last()
 # print(df_btc_monthly)
 
 # Plot the Tesla stock price against the Tesla search volume using a line chart and two different axes
