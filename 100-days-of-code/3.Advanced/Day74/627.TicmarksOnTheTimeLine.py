@@ -208,3 +208,18 @@ ax2.plot(df_unemployment.MONTH, roll_df.UE_BENEFITS_WEB_SEARCH, color='skyblue',
 plt.plot()
 plt.show()
 
+# Read the data in the 'UE Benefits Search vs UE Rate 2004-20.csv'
+benefits_search = pd.read_csv('data/UE Benefits Search vs UE Rate 2004-20.csv')
+benefits_search.MONTH = pd.to_datetime(benefits_search.MONTH)
+plt.figure(figsize=(14, 8),dpi=120)
+plt.yticks(fontsize=14)
+plt.xticks(fontsize=14,rotation=45)
+plt.title('Monthly US "Unemployment Benefits" Web Search vs Unrate')
+ax1 = plt.gca()
+ax2 = ax1.twinx()
+ax1.set_ylabel('Fred U/E Rate', color='purple', fontsize=14)
+ax2.set_ylabel('Search Trend', color='skyblue', fontsize=14)
+ax1.set_xlim([benefits_search.MONTH.min(), benefits_search.MONTH.max()])
+ax1.plot(benefits_search.MONTH, benefits_search.UNRATE, color='purple', linewidth=3, linestyle='--')
+ax2.plot(benefits_search.MONTH, benefits_search.UE_BENEFITS_WEB_SEARCH, color='skyblue', linewidth=3)
+plt.plot()
