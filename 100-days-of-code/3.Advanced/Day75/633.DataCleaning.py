@@ -61,6 +61,56 @@ print(df_apps_clean[df_apps_clean.App == 'Instagram'])
 print(df_apps_clean.shape)
 
 
+"""# Find Highest Rated Apps
+
+**Challenge**: Identify which apps are the highest rated. What problem might you encounter if you rely exclusively on ratings alone to determine the quality of an app?
+"""
+
+df_apps_clean.Size_MBs.max()
+
+#Find Highest Rated Apps
+df_apps_clean.sort_values('Rating', ascending=False).head()
+
+"""# Find 5 Largest Apps in terms of Size (MBs)
+
+**Challenge**: What's the size in megabytes (MB) of the largest Android apps in the Google Play Store. Based on the data, do you think there could be limit in place or can developers make apps as large as they please? 
+"""
+
+#Find 5 Largest Apps in terms of Size (MBs)
+df_apps_clean.sort_values('Size_MBs', ascending=False).head()
+
+"""# Find the 5 App with Most Reviews
+
+**Challenge**: Which apps have the highest number of reviews? Are there any paid apps among the top 50?
+"""
+
+#Find the 5 App with Most Reviews
+df_apps_clean.sort_values('Reviews', ascending=False).head()
+
+#Find the 50 App with Most Reviews
+df_apps_clean.sort_values('Reviews', ascending=False).head(50)
+
+"""# Plotly Pie and Donut Charts - Visualise Categorical Data: Content Ratings"""
+
+# count Content Ratings
+ratings = df_apps_clean.Content_Rating.value_counts()
+print(ratings)
+
+import pandas as pd
+import plotly.express as px
+
+#Plotly Pie
+fig = px.pie(labels=ratings.index, values=ratings.values)
+fig.show()
+
+fig = px.pie(labels=ratings.index, values=ratings.values, title='Content Rating', names=ratings.index)
+fig.update_traces(textposition='outside', textinfo='percent+label')
+fig.show()
+
+#Donut Charts
+fig=px.pie(labels=ratings.index, values=ratings.values, title='Content rating', names=ratings.index, hole=0.6)
+fig.update_traces(textposition='inside', textfont_size=15, textinfo='percent' )
+fig.show()
 
 
 
