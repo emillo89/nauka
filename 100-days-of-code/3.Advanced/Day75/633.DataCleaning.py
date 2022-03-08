@@ -112,5 +112,25 @@ fig=px.pie(labels=ratings.index, values=ratings.values, title='Content rating', 
 fig.update_traces(textposition='inside', textfont_size=15, textinfo='percent' )
 fig.show()
 
+#check the data types on the columns
+print(df_apps_clean.Installs.describe())
 
+#check the data types on the DataFrame
+print(df_apps_clean.info())
+print(df_apps_clean[['App', 'Installs']].groupby('Installs').count())
+
+#remove comma
+df_apps_clean.Installs = df_apps_clean.Installs.astype(str).str.replace(',','')
+
+#convert our data to a number
+df_apps_clean.Installs = pd.to_numeric(df_apps_clean.Installs)
+print(df_apps_clean[['App','Installs']].groupby('Installs').count())
+
+#Convert the price column to numeric data
+#look at the data type of the price column
+print(df_apps_clean.Price.describe())
+
+df_apps_clean.Price = df_apps_clean.Price.astype(str).str.replace('$','')
+df_apps_clean.Price = pd.to_numeric(df_apps_clean.Price)
+print(df_apps_clean.sort_values('Price', ascending=False).head(20))
 
