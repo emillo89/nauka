@@ -134,3 +134,61 @@ df_apps_clean.Price = df_apps_clean.Price.astype(str).str.replace('$','')
 df_apps_clean.Price = pd.to_numeric(df_apps_clean.Price)
 print(df_apps_clean.sort_values('Price', ascending=False).head(20))
 
+
+#apps below $250
+df_apps_clean = df_apps_clean[df_apps_clean['Price'] < 250]
+df_apps_clean.sort_values('Price', ascending=False).head(5)
+
+"""### Highest Grossing Paid Apps (ballpark estimate)"""
+
+#highest grossing paid apps
+print(df_apps_clean.columns)
+
+#multiply the values
+df_apps_clean['Revenue_Estimate'] = df_apps_clean.Installs.mul(df_apps_clean.Price)
+
+print(df_apps_clean.sort_values('Revenue_Estimate', ascending=False).head(10))
+
+"""# Plotly Bar Charts & Scatter Plots: Analysing App Categories"""
+
+#Find the number of different categories
+print(df_apps_clean.Category.nunique())
+
+#To calculate the number of apps per category
+top10_category = df_apps_clean.Category.value_counts()[:10]
+print(top10_category)
+
+"""### Vertical Bar Chart - Highest Competition (Number of Apps)"""
+
+#Vertical Bar Chart - Highest Competition (Number of Apps)
+bar = px.bar(x=top10_category.index, y=top10_category.values)
+bar.show()
+
+"""### Horizontal Bar Chart - Most Popular Categories (Highest Downloads)"""
+
+#Horizontal Bar Chart - Most Popular Categories (Highest Downloads)
+category_installs = df_apps_clean.groupby('Category').agg({'Installs': pd.Series.sum})
+print(category_installs.sort_values('Installs', ascending=True, inplace=True))
+
+h_bar = px.bar(x=category_installs.Installs, y=category_installs.index, orientation='h', title='Category Popularity')
+h_bar.update_layout(xaxis_title='Number of Downloads', yaxis_title='Category')
+h_bar.show()
+
+#Create a DataFrame that has the number of apps in one column and the number of installs
+cat_number = df_apps_clean.groupby('Category').agg({'App':pd.Series.count})
+
+cat_merged_df = pd.merge(cat_number,category_installs, on='Category', how='inner')
+print(cat_merged_df.sort_values('Installs', ascending=False))
+
+scatter = px.scatter(cat_merged_df,
+                     x='App',
+                     y='Installs',
+                     title='Category Conncentration',
+                     size='App',
+                     hover_name = cat_merged_df.index,
+                     color='Installs')
+scatter.update_layout(xaxis_title='Number of Apps (Lower=More Concentrated',
+                      yaxis_title="Installs",
+                      yaxis=dict(type='log')
+                      )
+scatter.show()
