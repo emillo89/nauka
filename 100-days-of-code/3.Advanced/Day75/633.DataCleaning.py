@@ -192,3 +192,93 @@ scatter.update_layout(xaxis_title='Number of Apps (Lower=More Concentrated',
                       yaxis=dict(type='log')
                       )
 scatter.show()
+
+"""# Extracting Nested Data from a Column"""
+print(df_apps_clean.Genres)
+
+#number of genres
+print(len(df_apps_clean['Genres'].unique()))
+print(df_apps_clean.Genres.value_counts().sort_values(ascending=True)[:10])
+
+## Split the strings on the semi-colon and then .stack them.
+stack = df_apps_clean.Genres.str.split(';', expand=True).stack()
+num_genres = stack.value_counts()
+
+print(num_genres)
+
+#Colour Scales in Plotly Charts - Competition in Genres
+bar = px.bar(x=num_genres.index[:15],
+             y=num_genres.values[:15],
+             title='Top Genres',
+            #  hover_name=num_genres.index[:15],
+             color=num_genres.values[:15],
+             color_continuous_scale='Agsunset'
+             )
+bar.update_layout(xaxis_title='Genre',
+                  yaxis_title='Number of Apps',
+                  #will turn off scale
+                  coloraxis_showscale=False
+                  )
+
+"""# Grouped Bar Charts: Free vs. Paid Apps per Category"""
+
+print(df_apps_clean.Type.value_counts())
+
+df_free_vs_paid = df_apps_clean.groupby(['Category','Type']).agg({'App':pd.Series.count})
+print(df_free_vs_paid.head())
+
+#add index to the table
+df_free_vs_paid = df_apps_clean.groupby(['Category','Type'],as_index=False).agg({'App':pd.Series.count})
+print(df_free_vs_paid.head())
+
+#Free vs Paid Apps by Category
+g_bar = px.bar(df_free_vs_paid,
+               x='Category',
+               y='App',
+               title='Free vs Paid Apps by Category',
+               #1 color paid second free
+               color='Type',
+               #group - two column paid and free
+               barmode='group')
+g_bar.update_layout(xaxis_title='Category',
+                    yaxis_title='Number of Apps',
+                    #Set `categoryorder` to "category ascending" or
+                    #"category descending" if order should be determined by the alphanumerical order of the category nam
+                    xaxis={'categoryorder':'total descending'},
+                    yaxis=dict(type='log'))
+g_bar.show()
+
+#Plotly Box Plots: Lost Downloads for Paid Apps
+box = px.box(df_apps_clean,
+             y='Installs',
+             x='Type',
+             color='Type',
+             notched=True,
+             #With the points argument, display underlying data points with either all points (all),
+             points='all',
+             title='How many Downloads are Paid Apss Giving Up?')
+box.update_layout(yaxis=dict(type='log'))
+box.show()
+
+df_paid_apps = df_apps_clean[df_apps_clean['Type']=='Paid']
+box = px.box(df_paid_apps,
+             x='Category',
+             y='Revenue_Estimate',
+             title='How much can paid apps earn?')
+box.update_layout(xaxis_title='Category',
+                  yaxis_title='Paid App Ballpark revenue',
+                  xaxis={'categoryorder': 'min ascending'},
+                  yaxis=dict(type='log'))
+box.show()
+
+"""the median price price for a paid app? Then compare pricing by category by creating another box plot"""
+box = px.box(df_paid_apps,
+             x='Category',
+             y='Price',
+             title='Price per Category')
+box.update_layout(xaxis_title='Category',
+                  yaxis_title='Paid App Price',
+                  xaxis={'categoryorder': 'max descending'},
+                  yaxis=dict(type='log'))
+box.show()
+
