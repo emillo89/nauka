@@ -120,6 +120,113 @@ plt.imshow(noise)
 plt.show()
 
 
+"""# Linear Algebra with Vectors"""
+v1 = np.array([4, 5, 2, 7])
+v2 = np.array([2, 1, 3, 3])
+
+# Python Lists vs ndarrays
+list1 = [4, 5, 2, 7]
+list2 = [2, 1, 3, 3]
+
+#add v1 + v2
+print(v1 + v2)
+
+#add list1 + list2 (concatenate list)
+print(list1 + list2)
+
+#Multiplying the two vectors
+print(v1 * v2)
+
+#Multiplying the two list
+# list1 * list2
+# this operation would not work at all
+
+"""Broadcasting and Scalars"""
+
+#Broadcasting and Scalars
+#single number is often called a scalar
+#suma vector with scalar
+array_2d = np.array([[1,2,3,4],[5,6,7,8]])
+print(array_2d + 10)
+
+#Multicplications vector with scalar
+print(array_2d * 5)
+
+"""Matrix Multiplication with @ and .matmul()"""
+
+a1 = np.array([[1, 3],
+               [0, 1],
+               [6, 2],
+               [9, 7]])
+
+b1 = np.array([[4, 1, 3],
+               [5, 8, 5]])
+
+print(f'{a1.shape}: a has {a1.shape[0]} rows and {a1.shape[1]} columns.')
+print(f'{b1.shape}: b has {b1.shape[0]} rows and {b1.shape[1]} columns.')
+print('Dimensions of result: (4x2)*(2x3)=(4x3)')
+
+#multiply a1 with b1
+c = np.matmul(a1, b1)
+print(c)
+
+""" second method multiply 
+c = a1 @ b1
+c
+"""
+
+"""Manipulating Images as ndarrays"""
+
+from scipy import misc
+from PIL import Image
+
+img = misc.face()
+print(img)
+plt.imshow(img)
+
+"""**Challenge**: What is the data type of `img`? Also, what is the shape of `img` and how many dimensions does it have? What is the resolution of the image?"""
+
+#What is the data type of img
+type(img)
+print(img.shape)
+print(img.ndim)
+
+"""Convert the image to black and white"""
+grey_vals = np.array([0.2126, 0.7152, 0.0722])
+
+# Convert the image to black and white
+sRGB = img / 255
+print(sRGB)
+
+#matrix multiplication to multiply our two ndarrays
+img_gray = sRGB @ grey_vals
+
+plt.imshow(img_gray, cmap='gray')
+
+#flip
+plt.imshow(np.flip(img_gray), cmap='gray')
+
+#Rotate the colour image
+plt.imshow(np.rot90(img))
+
+#Invert the colour image
+solar_img = 255 - img
+plt.imshow(solar_img)
+
+"""# Use your Own Image!"""
+
+file_name = 'yummy_macarons.jpg'
+
+my_img = Image.open(file_name)
+img_array = np.array(my_img)
+
+print(img_array.ndim)
+print(img_array.shape)
+
+"""#### Use PIL to open """
+plt.imshow(img_array)
+plt.imshow(255 - img_array)
+plt.show()
 
 
 
