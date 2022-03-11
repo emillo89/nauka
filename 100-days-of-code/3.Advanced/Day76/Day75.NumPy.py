@@ -64,8 +64,61 @@ print(mystery_array[2,1,3])
 #access to the [97, 0, 27, 18]
 print(mystery_array[2,1,:])
 
-#alle the first elements on axis number 3 [[ 0, 4], [ 7, 5], [ 5, 97]]
+#Find the first elements on axis number 3 [[ 0, 4], [ 7, 5], [ 5, 97]]
 print(mystery_array[:,:, :1])
+
+#createa a vector a with values ranging from 10 to 29
+a = np.arange(10,30)
+print(a)
+
+#array containing only the last 3 values of a
+b = a[-3:]
+print(b)
+
+#Create a subset with only the 4th, 5th, and 6th values
+subset = a[3:7]
+print(subset)
+
+#Create a subset of a containing all the values except for the first 12
+subset = a[12:]
+print(subset)
+
+#Create a subset that only contains the even numbers
+print(a[::2])
+
+#revers 1 method
+print(np.flip(a))
+
+#reverse 2 method
+print(a[::-1])
+
+#find non-zero elements
+b = [6,0,9,0,0,5,0]
+print(np.nonzero(b))
+
+#generate a 3x3x3 array with random numbers
+from numpy.random import random
+z = random((3,3,3))
+print(z)
+
+#create a vector x of size 9 with values spaced out evenly between 0 to 100
+N=9
+x = np.linspace(0,100,N)
+print(x)
+
+# create another vector y of size 9 with values between -3 to 3
+n=9
+x = np.linspace(0,100,num=9)
+y = np.linspace(start=-3,stop=3,num=N)
+plt.plot(x,y)
+plt.show()
+
+#generated a 128x128 pixel image of random noise
+noise = np.random.random((128,128,3))
+print(noise.shape)
+plt.imshow(noise)
+plt.show()
+
 
 
 
