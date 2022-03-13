@@ -87,3 +87,43 @@ print(zero_domestic.sort_values('USD_Production_Budget', ascending=False))
 #No worldwide revenue
 zero_worldwide = data[data.USD_Worldwide_Gross == 0]
 print(zero_worldwide.sort_values('USD_Production_Budget', ascending=False))
+
+"""Filtering on Multiple Conditions"""
+
+#Filtering on Multiple Conditions
+international_releases = data.loc[(data.USD_Domestic_Gross == 0) & (data.USD_Worldwide_Gross != 0)]
+print(international_releases)
+
+#.query() function to accomplish the same thing
+international_releases = data.query('USD_Domestic_Gross == 0 and USD_Worldwide_Gross != 0')
+print(international_releases)
+
+#Unreleased Films
+# Date of Data Collection
+scrape_date = pd.Timestamp('2018-5-1')
+print(scrape_date)
+
+# Which films were not released yet as of the time of data collection (May 1st, 2018).
+data.sort_values('Release_Date', ascending=False)
+
+#How many films are included in the dataset that have not yet
+print(len(data[data.Release_Date >= scrape_date]))
+future_releases = data[data.Release_Date >= scrape_date]
+print(future_releases)
+
+#or data.loc[(data.Release_Date >= scrape_date)]
+
+#data_clean that does not include these films
+data_clean = data.drop(future_releases.index)
+print(data_clean)
+
+"""Films that Lost Money"""
+#What is the percentage of films where the production costs exceeded the worldwide gross revenue?
+print(data_clean.describe())
+
+money_losing = data_clean.loc[data_clean.USD_Production_Budget > data_clean.USD_Worldwide_Gross]
+print(len(money_losing))
+
+#percentage money losing
+percentage = money_losing.shape[0] / data_clean.shape[0]
+print(percentage)
