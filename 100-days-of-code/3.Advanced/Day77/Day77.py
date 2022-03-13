@@ -127,3 +127,61 @@ print(len(money_losing))
 #percentage money losing
 percentage = money_losing.shape[0] / data_clean.shape[0]
 print(percentage)
+
+"""# Seaborn for Data Viz: Bubble Charts"""
+
+#Seaborn for Data Viz: Bubble Charts
+import seaborn as sns
+
+"""### Plotting Movie Releases over Time"""
+
+#create the following Bubble Chart:
+plt.figure(figsize=(8,4), dpi=200)
+sns.scatterplot(data=data_clean,
+               x='USD_Production_Budget',
+               y='USD_Worldwide_Gross')
+
+plt.figure(figsize=(8,4), dpi=200)
+ax = sns.scatterplot(data=data_clean,
+               x='USD_Production_Budget',
+               y='USD_Worldwide_Gross',
+               #color
+               hue = 'USD_Worldwide_Gross',
+               #size
+               size='USD_Worldwide_Gross')
+ax.set(ylim=(0, 3000000000),
+       xlim=(0, 450000000),
+       ylabel='Revenue in $ billions',
+       xlabel='Budget in $100 millions')
+plt.show()
+
+plt.figure(figsize=(8,4), dpi=200)
+#set styling on a single chart
+with sns.axes_style('darkgrid'):
+  ax = sns.scatterplot(data=data_clean,
+               x='USD_Production_Budget',
+               y='USD_Worldwide_Gross',
+               #color
+               hue = 'USD_Worldwide_Gross',
+               #size
+               size='USD_Worldwide_Gross')
+  ax.set(ylim=(0, 3000000000),
+       xlim=(0, 450000000),
+       ylabel='Revenue in $ billions',
+       xlabel='Budget in $100 millions')
+plt.show()
+
+#
+plt.figure(figsize=(8,4), dpi=200)
+ax = sns.scatterplot(data=data_clean,
+               x='Release_Date',
+               y='USD_Production_Budget',
+               #color
+               hue = 'USD_Worldwide_Gross',
+               #size
+               size='USD_Worldwide_Gross')
+ax.set(ylim=(0, 450000000),
+       xlim=(data_clean.Release_Date.min(), data_clean.Release_Date.max()),
+       ylabel='Budget in $100 milliones',
+       xlabel='Year')
+plt.show()
