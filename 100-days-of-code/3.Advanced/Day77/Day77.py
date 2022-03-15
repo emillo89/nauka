@@ -185,3 +185,29 @@ ax.set(ylim=(0, 450000000),
        ylabel='Budget in $100 milliones',
        xlabel='Year')
 plt.show()
+
+
+#Create a DatetimeIndex object
+dt_index = pd.DatetimeIndex(data_clean.Release_Date)
+print(dt_index)
+years = dt_index.year
+print(years)
+
+#Create new column = Decade
+decades = years//10*10
+data_clean['Decade'] = decades
+
+"""Separate the "old" (before 1969) and "New" (1970s onwards) Films"""
+
+#create new dataFrame old_movie < 1970
+print(data_clean)
+old_films = data_clean[data_clean.Decade <= 1960]
+
+#create new dataFrame new_films
+new_films = data_clean[data_clean.Decade > 1960]
+
+#How many films were released prior to 1970?
+old_films.describe()
+
+#What was the most expensive film made prior to 1970?
+print(old_films.sort_values('USD_Production_Budget', ascending=False).head())
