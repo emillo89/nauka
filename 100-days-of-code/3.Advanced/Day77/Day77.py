@@ -255,3 +255,49 @@ with sns.axes_style('darkgrid'):
          ylabel='Revenue in $ billions',
          xlabel='Budget in $100 millions')
 plt.show()
+
+"""Run Your Own Regression with scikit-learn REVENUE=θ0+θ1 *BUDGET """
+#regression with scikit-learn
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.linear_model import LinearRegression
+
+#create linear regression
+regression = LinearRegression()
+
+# linear regression for the old_film
+# Explanatory Variable(s) or Feature(s)
+X = pd.DataFrame(new_films, columns=['USD_Production_Budget'])
+print(X)
+
+# Response Variable or Target
+y = pd.DataFrame(new_films, columns=['USD_Worldwide_Gross'])
+print(y)
+
+## Find the best-fit line
+#attributes of the LinearRegression object.
+regression.fit(X, y)
+
+#Theta zero
+regression.intercept_
+
+#theta one
+regression.coef_
+
+#R-Squared (model explains about 56% of the variance in movie revenue)
+regression.score(X, y)
+
+#linear regression for the old_films
+X = pd.DataFrame(old_films, columns=['USD_Production_Budget'])
+y = pd.DataFrame(old_films,columns=['USD_Worldwide_Gross'])
+regression.fit(X, y)
+print(f"the slope coefficient is {regression.coef_}")
+print(f"The intercept is: {regression.intercept_}")
+print(f"The r_squared is: {regression.score(X,y)}")
+
+# estimated the slope and intercept!
+budget = 350000000
+revenue_estimate = regression.intercept_[0] + regression.coef_[0][0] * budget
+revenue_estimate = round(revenue_estimate, -6)
+print(f"The estimate revenue for a $350 film is around ${revenue_estimate:.10}.")
