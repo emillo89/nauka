@@ -211,3 +211,47 @@ old_films.describe()
 
 #What was the most expensive film made prior to 1970?
 print(old_films.sort_values('USD_Production_Budget', ascending=False).head())
+
+"""Seaborn Regression Plots"""
+#Linear Regressions with Seaborn
+sns.regplot(data=old_films,
+            x='USD_Production_Budget',
+            y='USD_Worldwide_Gross')
+plt.show()
+
+#To style the chart further
+plt.figure(figsize=(8,4), dpi=120)
+with sns.axes_style('whitegrid'):
+  sns.regplot(data=old_films,
+              x='USD_Production_Budget',
+              y='USD_Worldwide_Gross',
+              line_kws = {'color' : 'black'})
+plt.show()
+
+#To style the chart - color line =red and transparency
+plt.figure(figsize=(8,4), dpi=120)
+with sns.axes_style('whitegrid'):
+  sns.regplot(data=old_films,
+              x='USD_Production_Budget',
+              y='USD_Worldwide_Gross',
+              #transparency of the dots
+              scatter_kws = {'alpha' : 0.2},
+              #regression line color
+              line_kws = {'color' : 'red'})
+plt.show()
+
+#to show the scatter plot and linear regression line against the new_films.
+plt.figure(figsize=(8,4), dpi=120)
+with sns.axes_style('darkgrid'):
+  ax = sns.regplot(data=new_films,
+              x='USD_Production_Budget',
+              y='USD_Worldwide_Gross',
+              color = '#2f4b7c',
+              scatter_kws = {'alpha' : 0.3},
+              line_kws = {'color' : '#ff7c43'}
+              )
+  ax.set(ylim=(0,3000000000),
+         xlim=(0, 450000000),
+         ylabel='Revenue in $ billions',
+         xlabel='Budget in $100 millions')
+plt.show()
