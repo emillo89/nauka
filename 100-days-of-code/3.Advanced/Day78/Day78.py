@@ -320,3 +320,161 @@ l_chart =px.line(cumulative_prizes,
 l_chart.update_layout(xaxis_title='Year',
                       yaxis_title='Number of Prizes')
 l_chart.show()
+
+
+"""# What are the Top Research Organisations?"""
+
+# bar chart showing the organisations affiliated with the Nobel laureates
+top20_orgs = df_data.organization_name.value_counts()[:20]
+top20_orgs.sort_values(ascending=True, inplace=True)
+print(top20_orgs)
+
+org_bar = px.bar(x=top20_orgs.values,
+                 y=top20_orgs.index,
+                 orientation='h',
+                 color=top20_orgs.values,
+                 color_continuous_scale=px.colors.sequential.haline,
+                 title='Top 20 Research Institutions by Number of Prizes')
+org_bar.update_layout(xaxis_title='Number of prizes',
+                      yaxis_title='Institutions',
+                      coloraxis_showscale=False)
+org_bar.show()
+
+"""# Which Cities Make the Most Discoveries?"""
+
+#top 20 organisation cities of the research institutions associated with a Nobel laureate.
+top20_org_cities = df_data.organization_city.value_counts()[:20]
+top20_org_cities.sort_values(ascending=True, inplace=True)
+
+city_bar = px.bar(x=top20_org_cities.values,
+                  y=top20_org_cities.index,
+                  orientation='h',
+                  color=top20_org_cities,
+                  color_continuous_scale=px.colors.sequential.Plasma,
+                  title='Which Cities Do the Most Research?')
+city_bar.update_layout(xaxis_title='Number of Prizes',
+                       yaxis_title='City',
+                       coloraxis_showscale=False)
+city_bar.show()
+
+"""# Where are Nobel Laureates Born? Chart the Laureate Birth Cities """
+
+#Where are Nobel Laureates Born
+top20_cities = df_data.birth_city.value_counts()[:20]
+top20_cities.sort_values(ascending=True, inplace=True)
+
+city_bar=px.bar(x=top20_cities.values,
+                y=top20_cities.index,
+                orientation='h',
+                color=top20_cities.values,
+                color_continuous_scale=px.colors.sequential.Plasma,
+                title='Where were the Nobel LaureatesBorn?')
+city_bar.update_layout(xaxis_title='Number of Prizes',
+                       yaxis_title='City of Birth',
+                       coloraxis_showscale=False)
+city_bar.show()
+
+"""# Plotly Sunburst Chart: Combine Country, City, and Organisation"""
+
+#Plotly Sunburst Chart: Combine Country, City, and Organisation
+country_city_org = df_data.groupby(by=['organization_country',
+                                       'organization_city',
+                                       'organization_name'], as_index=False).agg({'prize':pd.Series.count})
+
+country_city_org = country_city_org.sort_values('prize', ascending=False)
+print(country_city_org)
+
+burst = px.sunburst(country_city_org,
+                    path=['organization_country', 'organization_city', 'organization_name'],
+                    values='prize',
+                    title='Where do Discoveries Take Place?')
+burst.update_layout(xaxis_title='number of Prizes',
+                    yaxis_title='City',
+                    coloraxis_showscale=False)
+burst.show()
+
+
+
+"""# Patterns in the Laureate Age at the Time of the Award"""
+
+#How Old Are the Laureates When the Win the Prize?
+birth_year = df_data.birth_date.dt.year
+print(birth_year)
+
+df_data['winning_age'] = df_data.year - birth_year
+
+print(df_data['winning_age'])
+
+"""### Who were the oldest and youngest winners?"""
+
+#Who were the oldest and youngest winners?
+print(df_data.nlargest(n=1, columns='winning_age'))
+print(df_data.nsmallest(n=1, columns='winning_age'))
+
+# names of the youngest and oldest Nobel laureate
+youngest_name=df_data.nsmallest(n=1, columns='winning_age').full_name
+oldest_name=df_data.nlargest(n=1, columns='winning_age').full_name
+print(youngest_name)
+print(oldest_name)
+
+"""### Descriptive Statistics for the Laureate Age at Time of Award"""
+
+#What is the average age of a winner?
+print(df_data.winning_age.describe())
+
+#Use Seaborn to create histogram to visualise the distribution of laureate age at the time of winning.
+plt.figure(figsize=(8,4), dpi=200)
+sns.histplot(data=df_data, x=df_data.winning_age, bins=30)
+plt.xlabel('Age')
+plt.title('Distribution of Age on Receipt of Prize')
+plt.show()
+
+"""### Age at Time of Award throughout History"""
+
+#Age at Time of Award throughout History
+plt.figure(figsize=(8,4), dpi=200)
+with sns.axes_style("whitegrid"):
+  sns.regplot(data=df_data,
+              x='year',
+              y='winning_age',
+              scatter_kws = {'alpha' : 0.4},
+              #lowess parameter to True to show a moving average of the linear fit.
+              lowess=True,
+              line_kws={'color' : 'black'})
+plt.show()
+
+"""### Winning Age Across the Nobel Prize Categories"""
+
+#Age Differences between Categories
+plt.figure(figsize=(8,4), dpi=200)
+with sns.axes_style("whitegrid"):
+  #The box plot shows us the mean, the quartiles, the maximum and the minimum values.
+  sns.boxplot(data=df_data,
+              x='category',
+              y='winning_age')
+plt.show()
+
+# Seaborn's .lmplot() and the row parameter to create 6 separate charts for each prize category
+with sns.axes_style('whitegrid'):
+  sns.lmplot(data=df_data,
+             x='year',
+             y='winning_age',
+             row='category',
+             lowess=True,
+             aspect=2,
+             scatter_kws={'alpha' : 0.6},
+             line_kws = {'color' : 'black'})
+plt.show()
+
+
+#To combine all these charts into the same chart, we can use the hue parameter
+with sns.axes_style('whitegrid'):
+  sns.lmplot(data=df_data,
+             x='year',
+             y='winning_age',
+             hue='category',
+             lowess=True,
+             aspect=2,
+             scatter_kws={'alpha' : 0.5},
+             line_kws={'linewidth' : 5} )
+plt.show()
