@@ -103,3 +103,46 @@ ax2.plot(df_monthly.date,
          linewidth=2,
          linestyle='--')
 plt.show()
+
+
+"""# The Yearly Data Split by Clinic"""
+
+#create line charts of the births and deaths of the two different clinics at the Vienna General Hospital.
+print(df_yearly)
+
+line = px.line(df_yearly,
+               x='year',
+               y='births',
+               color='clinic',
+               title='Total Yearly Births by Clinic')
+line.show()
+
+line = px.line(df_yearly,
+              x='year',
+              y='deaths',
+              color='clinic',
+              title='Total Yearly Deaths by Clinic')
+line.show()
+
+"""### Calculate the Proportion of Deaths at Each Clinic"""
+
+#percentage of deaths for each row in the df_yearly
+df_yearly['pct_deaths'] = df_yearly.deaths/ df_yearly.births
+print(df_yearly)
+
+#The average death rate for the entire time period for clinic 1 and 2
+clinic_1 = df_yearly[df_yearly.clinic == 'clinic 1']
+avg_clinic_1 = clinic_1.deaths.sum() / clinic_1.births.sum() * 100
+clinic_2 = df_yearly[df_yearly.clinic == 'clinic 2']
+avg_clinic_2 = clinic_2.deaths.sum() / clinic_2.births.sum() * 100
+print(f'Average death rate in clinic 1 is {avg_clinic_1:.3}%')
+print(f'Average death rate in clinic 2 is {avg_clinic_2:.3}%')
+
+"""### Plotting the Proportion of Yearly Deaths by Clinic"""
+
+line = px.line(df_yearly,
+               x='year',
+               y='pct_deaths',
+               color='clinic',
+               title='proportion of Yearly deaths by Clinic')
+line.show()
