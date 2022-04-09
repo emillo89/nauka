@@ -210,3 +210,81 @@ aw_line = plt.plot(after_washing.date,
                    label='After handwashing')
 plt.legend([ma_line, bw_line, aw_line], fontsize=18)
 plt.show()
+
+"""### Statistics - Calculate the Difference in the Average Monthly Death Rate"""
+
+#Difference in the Average Monthly Death Rate
+avg_before_hand = before_washing.pct_deaths.mean() * 100
+avg_after_hand = after_washing.pct_deaths.mean() * 100
+mean_diff = avg_before_hand - avg_after_hand
+times = avg_before_hand / avg_after_hand
+
+print(f"Chance of death during childbirth before handwashing {avg_before_hand:.3}%!")
+print(f"Handwashing reduced the monthly proportion ofdeaths by {mean_diff:.3}%.")
+print(f"This is a {times:.2}x improvement!")
+
+"""### Use Box Plots to Show How the Death Rate Changed Before and After Handwashing"""
+
+#add a column to df_monthly that shows if a particular date was before or after the start of handwashing.
+df_monthly['washing_hands'] = np.where(df_monthly.date < handwashing_start,'No','Yes')
+print(df_monthly)
+
+#box plot of the data before and after handwashing
+box = px.box(df_monthly,
+             x='washing_hands',
+             y='pct_deaths',
+             color='washing_hands',
+             title='How Have the Stats Changed with Handwashing?'
+             )
+box.update_layout(xaxis_title='Washing Hands?',
+                  yaxis_title='Percentage of Monthly Deaths')
+box.show()
+
+"""### Use Histograms to Visualise the Monthly Distribution of Outcomes"""
+
+#Histograms to Visualise the Monthly Distribution of Outcomes
+hist = px.histogram(df_monthly,
+                    x='pct_deaths',
+                    color='washing_hands',
+                    nbins=30,
+                    opacity=0.6,
+                    barmode='overlay',
+                    histnorm='percent',
+                    marginal='box'
+                    )
+hist.update_layout(xaxis_title='Proportion of MonthlyDeaths',
+                   yaxis_title='Count')
+hist.show()
+
+
+
+"""### Use a Kernel Density Estimate (KDE) to visualise a smooth distribution"""
+
+#two kernel density estimates of the pct_deaths, one for before handwashing and one for after.
+plt.figure(dpi=200)
+sns.kdeplot(before_washing.pct_deaths, shade=True)
+sns.kdeplot(after_washing.pct_deaths, shade=True)
+plt.title('Est. Distribution of monthly death arate before and after handwashing')
+plt.show()
+
+#without minus pct_deaths
+plt.figure(dpi=200)
+sns.kdeplot(before_washing.pct_deaths,
+            shade=True,
+            #start 0
+            clip=(0,1))
+sns.kdeplot(after_washing.pct_deaths,
+            shade=True,
+            clip=(0,1))
+plt.title('Est. Distribution of monthly death arate before and after handwashing')
+plt.xlim(0, 0.40)
+plt.show()
+
+"""### Use a T-Test to Show Statistical Significance"""
+
+import scipy.stats as stats
+
+t_stat, p_value = stats.ttest_ind(a=before_washing.pct_deaths,
+                                  b=after_washing.pct_deaths)
+print(f'p-value is {p_value:.10f}')
+print(f't-statistic is {t_stat:.4}')
