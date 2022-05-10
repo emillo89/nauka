@@ -15,8 +15,8 @@ screen.listen()
 screen.onkey(fun=player.move, key='Up')
 
 
-game_is_on = True
-while game_is_on:
+play_game_is_on = True
+while play_game_is_on:
     time.sleep(0.1)
     screen.update()
     car_manager.create_cars()
@@ -25,8 +25,8 @@ while game_is_on:
     #Dectect collision with car
     for car in car_manager.all_cars:
         if car.distance(player) < 20:
-            game_is_on = False
-            scoreboard.game_over()
+            play_game_is_on = False
+            scoreboard.play_game_over()
 
 
     #Detect succesfull crossing

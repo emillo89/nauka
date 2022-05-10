@@ -227,6 +227,8 @@
       <sourceFolder url="file://$MODULE_DIR$/4.Professional" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/4.Professional/Day81" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/4.Professional/Day82" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day17/Project" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2.Intermediate/Day17/Project_new_data" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
