@@ -4,7 +4,7 @@ import os
 my_email = os.environ["MY_EMAIL"]
 password = os.environ["MY_PASSWORD"]
 
-with smtplib.SMTP("smtp.gmail.com") as connection:
+with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
     #tls Transport Layer Security -(Security connection)
     connection.starttls()
     connection.login(user=my_email, password=password)
